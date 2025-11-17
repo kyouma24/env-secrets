@@ -8,12 +8,12 @@ env:
   MONGODB_DB_NAME: myDatabase
 jobs:
   test:
+    environment: testing
     env: 
-      MONGODB_CLUSTER_ADDRESS: ${{ env.MONGODB_CLUSTER_ADDRESS }}
+      MONGODB_CLUSTER_ADDRESS: ${{ vars.MONGODB_CLUSTER_ADDRESS }}
       MONGODB_USERNAME: ${{ secrets.MONGODB_USERNAME }}
       MONGODB_PASSWORD: ${{ secrets.MONGODB_PASSWORD }}
-      PORT: ${{ env.PORT }}
-    environment: testing
+      PORT: ${{ vars.PORT }}
     runs-on: ubuntu-latest
     steps:
       - name: Get Code
